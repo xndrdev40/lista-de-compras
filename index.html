@@ -19,7 +19,7 @@
         <img src="assets/logo.svg" alt="logo da pagina Quicklist">
         <h1>quicklist</h1>
       </header>
-      <section>
+      <section id="acount-list">
         <a href="#">← voltar</a>
         <h2>Compras da semana</h2>
         <form action="">
@@ -28,19 +28,20 @@
           <button type="submit">Adicionar Item</button>
         </div>
 
-        <ul id="list">
-          <li class="lits-items">
-            <img src="assets/icon-checkbox.svg" alt="icone de checagem">
-            <span>Pão de formna</span>
-            <img src="assets/trash.svg" alt="icone de lixeira para remover item da lista">
-          
-          </li>
+        <ul id="list">  
+                  
         </ul> 
+        <div class="alert">
+          <img src="assets/alert.svg" alt="">
+          <span id="output-text">O item foi removido da lista</span>
+          <img class="closed" src="assets/close.svg" alt="">
+        </div>
       </form>
       </section>    
 
 
       
     </main>
+    <script src="script.js"></script>
   </body>
 </html>

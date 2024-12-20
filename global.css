@@ -89,28 +89,7 @@ section{
       background-color: var(--color-brand) ;
       color: var(--always-white);
     }
-  }
-  
-  & .alert{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
-    padding: 8px 12px;
-    max-width: 100%;
-    height: 2.75rem;
-    border-radius: 8px;
-    background-color: var(--color-danger);
-    margin-top: 2rem;  
-    font: var(--paragraph);
-    color: var(--always-white);
-
-    & .closed{
-      margin-left: auto;
-    }
-    
-    display: none;
-  }
+  } 
 
 }
 
@@ -134,15 +113,13 @@ ul{
     background-color: var(--background-secondary);
     font: var(--paragraph);
 
-    & a{
+    
+    & .click-trash{
       width: 2rem;
       margin-left: auto;
       display: inline-block;
-    }
-   
-    & .icon-trash{
-      margin-left: auto;
-    }
+    }   
+    
     
   }  
 }
@@ -151,4 +128,25 @@ input::placeholder{
   padding: .5rem;
   font: var(--paragraph);
   color: var(--border-primary);
+}
+
+#mensage-error{
+  display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    max-width: 100%;
+    height: 2.75rem;
+    border-radius: 8px;
+    background-color: var(--color-danger);
+    margin-top: 2rem;  
+    font: var(--paragraph);
+    color: var(--always-white);
+
+    & .closed{
+      margin-left: auto;
+    }    
+
+    display: none;
 }

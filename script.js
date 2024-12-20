@@ -1,15 +1,27 @@
 const form = document.querySelector("form");
 const amount = document.getElementById("amount");
 const itemlist = document.getElementById("list");
-const acountItem = document.getElementById("acount-list");
-const msgError = document.querySelector("alert");
-const iconTrash = document.querySelector("icon-trash");
+const msgError = document.getElementById("mensage-error");
+const iconTrash = document.querySelector(".icon-trash");
+const closed = document.querySelector(".closed");
+
 
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
+  
+  const inputValue = amount.value.trim();
+  const regex = /^[A-Za-zÀ-ÿ\s]+$/;
+  
+  if(!regex.test(inputValue)){
+    alert("Diite valor válido!!");
+    amount.value = "";
+    return;
+  }
+
   const newItem = document.createElement("li");
+  const clickchecked = document.createElement("a")
   const imgChecked = document.createElement("img");
   const descriptionItem = document.createElement("span");
   const clickTrash = document.createElement("a")
@@ -23,26 +35,39 @@ form.addEventListener("submit", (event) => {
   imgtrash.setAttribute("src", "assets/trash.svg");  
   
   clickTrash.setAttribute("href", "#");
+  clickchecked.setAttribute("href", "#");
+  clickTrash.classList.add("click-trash");
   
-  clickTrash.appendChild(imgtrash)
-  newItem.append(imgChecked, descriptionItem, clickTrash);
+  clickchecked.appendChild(imgChecked);
+  clickTrash.appendChild(imgtrash);
+  newItem.append(clickchecked, descriptionItem, clickTrash);
  
 
   descriptionItem.textContent = amount.value;
   itemlist.append(newItem);
   amount.value = "";  
 
+ 
   clickTrash.addEventListener("click", function(event){
+    if(newItem){
+      msgError.style.display = "flex"
+    }
     event.preventDefault();
     newItem.remove();
   });
 
-  imgChecked.addEventListener("click", ()=>{
-    if(imgChecked.src ==="assets/icon-checkbox.svg"){
-      imgChecked.src ="/assets/icon-checked.svg";
+  clickchecked.addEventListener("click", ()=>{
+    if(imgChecked.src.includes("icon-checkbox.svg")){
+      imgChecked.src = "assets/icon-checked.svg";
     }else{
-      imgChecked.src="assets/icon-checkbox.svg"
+      imgChecked.src = "assets/icon-checkbox.svg";
     }
+  })
+
+  closed.addEventListener("click", function(event){
+    event.preventDefault();
+    msgError.remove();
+    
   })
 
 });

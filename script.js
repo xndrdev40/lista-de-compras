@@ -49,9 +49,12 @@ form.addEventListener("submit", (event) => {
 
  
   clickTrash.addEventListener("click", function(event){
+   
     if(newItem){
-      msgError.style.display = "flex"
+      msgError.style.display = "flex";
+      
     }
+  
     event.preventDefault();
     newItem.remove();
   });
@@ -66,7 +69,7 @@ form.addEventListener("submit", (event) => {
 
   closed.addEventListener("click", function(event){
     event.preventDefault();
-    msgError.remove();
+    msgError.style.display = "none";
     
   })
 
